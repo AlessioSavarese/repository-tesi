@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "Se usi questo codice, per favore cita come segue."
 authors:
-  - family-names: Englaro
-    given-names: Daniele
+  - family-names: Savarese
+    given-names: Alessio
 title: "One Permutation vs K-Min Hashing: Benchmark and Analysis"
 version: "1.0.0"
 date-released: 2024-2025
