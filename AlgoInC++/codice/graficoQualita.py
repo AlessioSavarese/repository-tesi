@@ -24,7 +24,7 @@ if df.empty:
     sys.exit(1)
 
 # Definisce i colori per ogni algoritmo
-colors = {'KMH': 'blue', 'OPH': 'red', 'FSS': 'green'}
+colors = {'KMH': 'blue',  'FSS': 'green'}
 
 # Crea il grafico 12x8 pollici
 plt.figure(figsize=(12, 8))

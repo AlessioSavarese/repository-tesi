@@ -34,7 +34,7 @@ mean_times = df.groupby(['Algoritmo', dim_column])['Tempo di esecuzione'].mean()
 plt.figure(figsize=(12, 8))
 
 # Definisce i colori per ogni algoritmo
-colors = {'KMH': 'blue', 'OPH': 'red', 'FSS': 'green'}
+colors = {'KMH': 'blue', 'FSS': 'green'}
 
 for algo in mean_times['Algoritmo'].unique():
     # Filtra i dati per l'algoritmo corrente

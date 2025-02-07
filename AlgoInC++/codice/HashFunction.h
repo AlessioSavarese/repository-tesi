@@ -8,14 +8,14 @@
 class HashFunction
 {
 private:
-    size_t a; ///< Coefficiente moltiplicativo
-    size_t b; ///< Coefficiente additivo
-    size_t m; ///< Modulo Universo / Dimensione Firma del FSS
-    size_t p; ///< Numero primo maggiore di m
-    size_t t;
-    size_t p_t;
-    size_t a_t;
-    size_t b_t;
+    size_t a;   ///< Coefficiente moltiplicativo
+    size_t b;   ///< Coefficiente additivo
+    size_t m;   ///< Modulo Universo
+    size_t p;   ///< Numero primo maggiore di m
+    size_t t;   ///< Numero di bin
+    size_t p_t; ///< Numero primo maggiore di `t`
+    size_t a_t; ///< Coefficiente moltiplicativo per la funzione hash secondaria.
+    size_t b_t; ///< Coefficiente additivo per la funzione hash secondaria.
 public:
     /**
      * Costruttore.

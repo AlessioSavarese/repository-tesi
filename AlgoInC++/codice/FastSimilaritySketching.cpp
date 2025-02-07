@@ -3,6 +3,7 @@
 #include <vector>
 #include "StampaVettore.h"
 
+
 FastSimilaritySketching::FastSimilaritySketching(size_t t, size_t m, size_t seed)
 {
     this->t = t;
@@ -48,33 +49,28 @@ std::vector<double> FastSimilaritySketching::computeSignature(std::vector<uint64
 
 
 
+bool FastSimilaritySketching::separationProcedure(size_t r, double gamma, std::vector<double> S_A, std::vector<double> S_B) {
+    // StampaVettore::printVector(S_A);
+    int S = 0;
+    size_t t = S_A.size();
+    std::vector<uint64_t> X(t);;
+    // StampaVettore::printVector(S_A);
+    // StampaVettore::printVector(S_B);
 
+    // std::cout << "\nDEBUG - Parametri iniziali: r=" << r << ", gamma=" << gamma << ", t=" << t << "\n";
 
+    for (size_t i = 0; i < t; ++i) {
+       X[i] = ((S_A[i]) == (S_B[i])) ? 1 : 0;
+    }
+    // StampaVettore::printVector(X);
+    for (size_t i = 1; i <= t; ++i) {
+        S += X[i - 1];
+        // std::cout << "Somma: "<< S << " alla posizione i=" << i << 
+        //             " (Soglia=" << i * gamma + std::cbrt(i * i) << ")\n";
 
-
-
-
-
-
-
-// bool FastSimilaritySketching::separationProcedure(size_t r, double gamma, std::vector<double>& S_A, std::vector<double>& S_B) {
-//     int S = 0;
-//     size_t t = S_A.size();
-//     std::vector<uint64_t> X(t);
-//     StampaVettore::printVector(S_A);
-//     StampaVettore::printVector(S_B);
-//     for (size_t i = 0; i < t; ++i) {
-//         X[i] = (S_A[i] == S_B[i]) ? 1 : 0;
-//     }
-//     StampaVettore::printVector(X);
-
-//     for (size_t i = 1; i <= t; ++i) {
-//         S += X[i - 1]; 
-//         // std::cout << "Iterazione " << i << ": S = " << S << ", gamma = " << gamma << ", soglia = " << (i * gamma + std::cbrt(i * i)) << std::endl;
-
-//         if (i >= r && S <= i * gamma + std::cbrt(i * i)) {
-//             return false; 
-//         }
-//     }
-//     return true; 
-// }
+        if (i >= r && S <= i * gamma + std::cbrt(i * i)) {
+            return false; 
+        }
+    }
+    return true; 
+}
